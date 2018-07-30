@@ -37,6 +37,10 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+if has("autocmd")
+  au BufRead,BufNewFile * startinsert
+endif
+
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
 if has("autocmd")
@@ -54,6 +58,8 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set number
+set expandtab
+set colorcolumn=80
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
