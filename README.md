@@ -147,7 +147,10 @@ $ make runserver
 Open http://localhost:8080/ in your favorite browser
 
 # Database inspection with pgadmin4:
-127.0.0.1 - 2345 - vagrant - vagrant
+Install [pgadmin4](https://www.pgadmin.org/)
+Open http://localhost:2345/
+
+User vagrant password vagrant
 
 # Extra Info: psql ssn
 \d - list table names
