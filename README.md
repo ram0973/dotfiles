@@ -13,7 +13,7 @@ sudo apt-get install fonts-powerline
 
 <details><summary>See project history</summary>
 
-** Start project **
+**Start project**
 
 ```bash
 $ pip install django
