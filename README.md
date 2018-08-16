@@ -163,7 +163,7 @@ $ make runserver
 Open http://localhost:8080/ in your favorite browser
 
 # Tests
-1) CI:  Travis
+1) CI is done automatically by TravisCI, upon every git push
 2) pytest: just run source venv/bin/activate && pytest
 
 # Database inspection with pgadmin4:
