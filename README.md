@@ -144,7 +144,7 @@ Windows: Vagrant virtual machine with Ubuntu Linux:
 1) Install [Virtualbox](https://www.virtualbox.org/)
 2) Install [Vagrant](https://www.vagrantup.com/)
 3) Install [Cmder](http://cmder.net/)
-4) Install [Pycharm])(https://www.jetbrains.com/pycharm/)
+4) Install [Pycharm](https://www.jetbrains.com/pycharm/)
 5) Run Cmder with bash console in it and enter following commands:
 ```bash
 $ git clone https://github.com/ram0973/37_transcendence_1/
