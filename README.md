@@ -158,7 +158,7 @@ $ make initapp
 $ make runserver
 ```
 6) Pycharm: configure deployment to Vagrant virtual machine: 
-
+```
 Tools - Deployment - Configuration:
 
 Connection type: SFTP; SFTP host: 127.0.0.1; User name: vagrant; Auth type: password; Password: vagrant; 
@@ -166,7 +166,7 @@ Connection type: SFTP; SFTP host: 127.0.0.1; User name: vagrant; Auth type: pass
 Deployment path: /opt/ssn/; Excluded: venv.
 
 Tools - Deployment - Automatic uploads: always.
-
+```
 7) Open http://localhost:8080/ in your browser
 
 # Tests
