@@ -38,8 +38,8 @@ SQLite sqlite:///PATH
 
 Added DOTENV in Common config and ALLOWED_HOSTS in Prod config (to test Prod config):
 ```python
-DOTENV = str(BASE_DIR / '.env')
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
+DOTENV = os.path.join(BASE_DIR, '.env')
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', ]
 ```
 Then
 ```bash
@@ -144,7 +144,11 @@ Windows - Vagrant:
 1) Install [Virtualbox](https://www.virtualbox.org/)
 2) Install [Vagrant](https://www.vagrantup.com/)
 3) Install [Cmder](http://cmder.net/)
-4) Run Cmder with bash console in it and enter following commands:
+4) Install Pycharm and configure deployment: 
+
+Connection type: SFTP; SFTP host: 127.0.0.1; User name: vagrant; Password: vagrant; Deployment path: /opt/ssn/; Excluded: venv
+
+5) Run Cmder with bash console in it and enter following commands:
 ```bash
 $ git clone https://github.com/ram0973/37_transcendence_1/
 $ cd 37_transcendence_1
@@ -162,10 +166,10 @@ Open http://localhost:8080/ in your browser
 1) CI is done automatically by TravisCI, upon every git push
 2) pytest: run source venv/bin/activate && pytest
 
-# Database inspection with pgadmin4:
-Install [pgadmin4](https://www.pgadmin.org/)
-Open http://localhost:2345/
-Create server with settings: Server: localhost Port: 2345 User: vagrant Password: vagrant 
+# Database inspection with pgadmin4 (Windows):
+
+1) Install and run [pgadmin4](https://www.pgadmin.org/)
+2) Create server with settings: Server: localhost Port: 2345 User: vagrant Password: vagrant
 
 # Extra Info: Play with Postgresql psql console command
 ```bash
