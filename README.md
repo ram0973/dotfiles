@@ -11,7 +11,7 @@ sudo apt-get install fonts-powerline
 [![Maintainability](https://api.codeclimate.com/v1/badges/85562fb4af688d096860/maintainability)](https://codeclimate.com/github/ram0973/37_transcendence_1/maintainability)
 [![codecov](https://codecov.io/gh/ram0973/37_transcendence_1/branch/master/graph/badge.svg)](https://codecov.io/gh/ram0973/37_transcendence_1)
 
-<details><summary>Project creation history (just remainder)</summary>
+<details><summary>See project history</summary>
 
 ** Start project **
 
@@ -123,6 +123,8 @@ Added Continuous Integration with https://travis-ci.org:
 python manage.py startapp auth
 ```
 </details>
+
+# About
 
 This is Sociological Social Network project, with options that will be implemented, step by step: 
 
