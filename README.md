@@ -123,6 +123,9 @@ Added Continuous Integration with https://travis-ci.org:
 python manage.py startapp auth
 ```
 </details>
+This is Sociological Social Network project.
+добавить вью для просмотра информации о пользователе (по ссылке /users/123/ должна показывать информация о пользователе 123);
+зарегистрироваться на Sentry и настроить логирование ошибок в него;
 
 # Install
 In development, with Vagrant:
