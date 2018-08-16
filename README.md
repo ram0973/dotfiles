@@ -182,8 +182,9 @@ User vagrant password vagrant
 $ psql ssn
 ```
 ```psql
-ssn=# \d # list table names
+ssn=# \d # list tables names
 ssn=# select * from auth_user; # show users
+ssn=# \q # quit
 ```
 
 # Project Goals
