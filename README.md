@@ -139,15 +139,12 @@ Step I. (Current):
 # Install and Run
 In development:
 
-Windows - Vagrant:
+Windows: Vagrant virtual machine with Ubuntu Linux:
 
 1) Install [Virtualbox](https://www.virtualbox.org/)
 2) Install [Vagrant](https://www.vagrantup.com/)
 3) Install [Cmder](http://cmder.net/)
-4) Install Pycharm and configure deployment: 
-
-Connection type: SFTP; SFTP host: 127.0.0.1; User name: vagrant; Password: vagrant; Deployment path: /opt/ssn/; Excluded: venv
-
+4) Install [Pycharm])(https://www.jetbrains.com/pycharm/)
 5) Run Cmder with bash console in it and enter following commands:
 ```bash
 $ git clone https://github.com/ram0973/37_transcendence_1/
@@ -160,7 +157,17 @@ $ export DJANGO_SETTINGS_MODULE=ssn.settings
 $ make initapp
 $ make runserver
 ```
-Open http://localhost:8080/ in your browser
+6) Pycharm: configure deployment to Vagrant virtual machine: 
+
+Tools - Deployment - Configuration:
+
+Connection type: SFTP; SFTP host: 127.0.0.1; User name: vagrant; Auth type: password; Password: vagrant; 
+
+Deployment path: /opt/ssn/; Excluded: venv.
+
+Tools - Deployment - Automatic uploads: always.
+
+7) Open http://localhost:8080/ in your browser
 
 # Tests
 1) CI is done automatically by TravisCI, upon every git push
