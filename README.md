@@ -122,14 +122,18 @@ python manage.py startapp auth
 ```
 </details>
 
-# Project Goals
+# Run
+python manage.py runserver 127.0.0.1:8080
 
-The code is written for educational purposes. Training course for
-web-developers - [DEVMAN.org](https://devman.org)
-
-RUN python manage.py runserver 0.0.0.0:8000
-pgadmin4: 127.0.0.1 - 2345 - vagrant - vagrant
+# Database inspection with pgadmin4:
+127.0.0.1 - 2345 - vagrant - vagrant
 
 # Extra Info: psql ssn
 \d - list table names
 select * from auth_user; - show users
+
+
+# Project Goals
+
+The code is written for educational purposes. Training course for
+web-developers - [DEVMAN.org](https://devman.org)
