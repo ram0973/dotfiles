@@ -123,25 +123,38 @@ Added Continuous Integration with https://travis-ci.org:
 python manage.py startapp auth
 ```
 </details>
-This is Sociological Social Network project.
-добавить вью для просмотра информации о пользователе (по ссылке /users/123/ должна показывать информация о пользователе 123);
-зарегистрироваться на Sentry и настроить логирование ошибок в него;
+This is Sociological Social Network project, with options that will be implemented, step by step: 
+
+registration, profiles, wall, private messages, API. And most important - a robot that will emulate user actions.
+
+Step I. (Current):
+1) Created project with development environment based on Vagrant.
+1) Added user vinfo view ( /users/admin/ shows info about user "admin");
+2) Registered with Sentry and configured the logging of errors in it.
 
 # Install
 In development, with Vagrant:
+(Windows)
 1) Install [Virtualbox](https://www.virtualbox.org/)
 2) Install [Vagrant](https://www.vagrantup.com/)
+(Linux apt-based)
+```bash
+sudo apt-get install virtualbox && sudo apt-get install vagrant
+3) Enter following commands:
 ```bash
 $ git clone https://github.com/ram0973/37_transcendence_1/
 $ cd 37_transcendence_1
 $ vagrant up
 $ vagrant ssh
 $ cd /opt/ssn
+$ export DJANGO_CONFIGURATION=Dev
+$ export DJANGO_SETTINGS_MODULE=ssn.settings
 $ make initapp
 ```
 # Run
 In development, with Vagrant:
 ```bash
+$ cd 37_transcendence_1
 $ vagrant up
 $ vagrant ssh
 $ cd /opt/ssn
@@ -149,16 +162,24 @@ $ make runserver
 ```
 Open http://localhost:8080/ in your favorite browser
 
+# Tests
+1) CI:  Travis
+2) pytest: just run source venv/bin/activate && pytest
+
 # Database inspection with pgadmin4:
 Install [pgadmin4](https://www.pgadmin.org/)
 Open http://localhost:2345/
 
 User vagrant password vagrant
 
-# Extra Info: psql ssn
-\d - list table names
-select * from auth_user; - show users
-
+# Extra Info: Play with Postgresql
+```bash
+$ psql ssn
+```
+```psql
+ssn=# \d # list table names
+ssn=# select * from auth_user; # show users
+```
 
 # Project Goals
 
