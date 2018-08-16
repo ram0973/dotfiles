@@ -11,7 +11,9 @@ sudo apt-get install fonts-powerline
 [![Maintainability](https://api.codeclimate.com/v1/badges/85562fb4af688d096860/maintainability)](https://codeclimate.com/github/ram0973/37_transcendence_1/maintainability)
 [![codecov](https://codecov.io/gh/ram0973/37_transcendence_1/branch/master/graph/badge.svg)](https://codecov.io/gh/ram0973/37_transcendence_1)
 
-<details><summary>Project creation steps</summary>
+<details><summary>Project creation history (just remainder)</summary>
+
+** Start project **
 
 ```bash
 $ pip install django
@@ -30,7 +32,7 @@ pip install dj-database-url
 Changed settings.py as here:
 https://github.com/jazzband/django-configurations/blob/templates/1.8.x/project_name/settings.py
 
-DB Paths:
+DB Paths remainder:
 PostgreSQL postgres://USER:PASSWORD@HOST:PORT/NAME
 SQLite sqlite:///PATH
 
@@ -122,8 +124,27 @@ python manage.py startapp auth
 ```
 </details>
 
+# Install
+In development, with Vagrant:
+1) Install [Virtualbox](https://www.virtualbox.org/)
+2) Install [Vagrant](https://www.vagrantup.com/)
+```bash
+$ git clone https://github.com/ram0973/37_transcendence_1/
+$ cd 37_transcendence_1
+$ vagrant up
+$ vagrant ssh
+$ cd /opt/ssn
+$ make initapp
+```
 # Run
-python manage.py runserver 127.0.0.1:8080
+In development, with Vagrant:
+```bash
+$ vagrant up
+$ vagrant ssh
+$ cd /opt/ssn
+$ make runserver
+```
+Open http://localhost:8080/ in your favorite browser
 
 # Database inspection with pgadmin4:
 127.0.0.1 - 2345 - vagrant - vagrant
