@@ -123,14 +123,16 @@ Added Continuous Integration with https://travis-ci.org:
 python manage.py startapp auth
 ```
 </details>
+
 This is Sociological Social Network project, with options that will be implemented, step by step: 
 
 registration, profiles, wall, private messages, API. And most important - a robot that will emulate user actions.
 
 Step I. (Current):
+
 1) Created project with development environment based on Vagrant.
-1) Added user vinfo view ( /users/admin/ shows info about user "admin");
-2) Registered with Sentry and configured the logging of errors in it.
+2) Added user vinfo view ( /users/admin/ shows info about user "admin");
+3) Registered with Sentry and configured the logging of errors in it.
 
 # Install
 In development, with Vagrant:
@@ -140,6 +142,7 @@ In development, with Vagrant:
 (Linux apt-based)
 ```bash
 sudo apt-get install virtualbox && sudo apt-get install vagrant
+```
 3) Enter following commands:
 ```bash
 $ git clone https://github.com/ram0973/37_transcendence_1/
