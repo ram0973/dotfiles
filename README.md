@@ -128,7 +128,7 @@ python manage.py startapp auth
 
 This is Sociological Social Network project, with options that will be implemented, step by step: 
 
-registration, profiles, wall, private messages, API. And most important - a robot that will emulate user actions.
+Registration, profiles, wall, private messages, API. And most important - a robot that will emulate user actions.
 
 Step I. (Current):
 
@@ -136,16 +136,15 @@ Step I. (Current):
 2) Added user vinfo view ( /users/admin/ shows info about user "admin");
 3) Registered with Sentry and configured the logging of errors in it.
 
-# Install
-In development, with Vagrant:
-(Windows)
+# Install and Run
+In development:
+
+Windows - Vagrant:
+
 1) Install [Virtualbox](https://www.virtualbox.org/)
 2) Install [Vagrant](https://www.vagrantup.com/)
-(Linux apt-based)
-```bash
-sudo apt-get install virtualbox && sudo apt-get install vagrant
-```
-3) Enter following commands:
+3) Install [Cmder](http://cmder.net/)
+4) Run Cmder with bash console in it and enter following commands:
 ```bash
 $ git clone https://github.com/ram0973/37_transcendence_1/
 $ cd 37_transcendence_1
@@ -155,32 +154,24 @@ $ cd /opt/ssn
 $ export DJANGO_CONFIGURATION=Dev
 $ export DJANGO_SETTINGS_MODULE=ssn.settings
 $ make initapp
-```
-# Run
-In development, with Vagrant:
-```bash
-$ cd 37_transcendence_1
-$ vagrant up
-$ vagrant ssh
-$ cd /opt/ssn
 $ make runserver
 ```
-Open http://localhost:8080/ in your favorite browser
+Open http://localhost:8080/ in your browser
 
 # Tests
 1) CI is done automatically by TravisCI, upon every git push
-2) pytest: just run source venv/bin/activate && pytest
+2) pytest: run source venv/bin/activate && pytest
 
 # Database inspection with pgadmin4:
 Install [pgadmin4](https://www.pgadmin.org/)
 Open http://localhost:2345/
+Create server with settings: Server: localhost Port: 2345 User: vagrant Password: vagrant 
 
-User vagrant password vagrant
-
-# Extra Info: Play with Postgresql
+# Extra Info: Play with Postgresql psql console command
 ```bash
 $ psql ssn
 ```
+
 ```psql
 ssn=# \d # list tables names
 ssn=# select * from auth_user; # show users
