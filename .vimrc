@@ -58,7 +58,7 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set number
-set colorcolumn=80
+set colorcolumn=100
 set tabstop=4
 set shiftwidth=4
 set smarttab
