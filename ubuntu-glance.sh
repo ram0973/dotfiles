@@ -8,3 +8,4 @@ rm MacBuntu-Wallpapers.zip
 sudo add-apt-repository ppa:noobslab/macbuntu -y
 sudo apt-get install macbuntu-os-icons-v1804 -y
 sudo apt-get install macbuntu-os-ithemes-v1804 -y
+gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
