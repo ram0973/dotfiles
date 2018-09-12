@@ -70,10 +70,7 @@ For starters, there are two basic ways to declare a bash syntax. The first uses 
 
 # This one will create a directory and then immediately move into that directory. 
 # mcd test
-mcd () {
-    mkdir -p $1
-    cd $1
-}
+mcd () { mkdir -p $1; cd $1; }
 
 # This function takes the first argument and calls the appropriate utility program based on the file extension used.
 function extract {
