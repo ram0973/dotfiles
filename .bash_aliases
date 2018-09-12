@@ -58,7 +58,7 @@ alias webify="mogrify -resize 690\> *.png"
 
 alias upload="sftp username@server.com:/path/to/upload/directory
 
-For starters, there are two basic ways to declare a bash syntax. The first uses the function command and looks something like this:
+# For starters, there are two basic ways to declare a bash syntax. The first uses the function command and looks something like this:
 
 # Functions syntax
 # function_name () {
