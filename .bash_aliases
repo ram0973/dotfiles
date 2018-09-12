@@ -17,7 +17,12 @@
 
 alias ..="cd .."
 alias ll="ls -lhA"
-alias @workon='source venv/bin/activate'
+alias @act="source venv/bin/activate"
+alias @deact="deactivate"
+alias @ins="sudo apt-get install"
+alias @upd="sudo apt-get update"
+alias @upg="sudo apt-get upgrade"
+
 # This one will list our disk usage in human-readable units including filesystem type, and print a total at the bottom:
 alias df="df -Tha --total"
 alias du="du -ach | sort -h"
