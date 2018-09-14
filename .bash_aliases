@@ -1,3 +1,12 @@
+alias ..="cd .."
+alias ll="ls -lhA"
+alias @venv="python3 -m venv venv"
+alias @act="source venv/bin/activate"
+alias @deact="deactivate"
+alias @get="sudo apt-get install"
+alias @upd="sudo apt-get update"
+alias @upg="sudo apt-get upgrade"
+
 # https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
 # If you want to get rid of an alias, just use the unalias command:
 # unalias ll
@@ -14,14 +23,6 @@
 # alias sl="ls"
 # Let's also make an alias to pipe our output to less for viewing large directory listings with the long format:
 # alias lsl="ls -lhFA | less"
-
-alias ..="cd .."
-alias ll="ls -lhA"
-alias @act="source venv/bin/activate"
-alias @deact="deactivate"
-alias @ins="sudo apt-get install"
-alias @upd="sudo apt-get update"
-alias @upg="sudo apt-get upgrade"
 
 # This one will list our disk usage in human-readable units including filesystem type, and print a total at the bottom:
 alias df="df -Tha --total"
@@ -108,6 +109,3 @@ function extract {
     done
 fi
 }
-
-# A one-liner from here allows us to see our most used commands:
-# history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10
