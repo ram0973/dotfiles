@@ -3,7 +3,7 @@ alias ll="ls -lhA"
 alias @venv="python3 -m venv venv"
 alias @act="source venv/bin/activate"
 alias @deact="deactivate"
-alias @get="sudo apt-get install"
+alias @ins="sudo apt-get install"
 alias @upd="sudo apt-get update"
 alias @upg="sudo apt-get upgrade"
 
