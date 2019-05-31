@@ -48,6 +48,11 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 
+" https://github.com/editorconfig/editorconfig-vim
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'micha/vim-colors-solarized'
+
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,9 +70,9 @@ filetype plugin indent on    " required
 
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
-if has("syntax")
-  syntax on
-endif
+
+colorscheme blue
+syntax on
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -75,30 +80,23 @@ endif
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-if has("autocmd")
-  au BufRead,BufNewFile * startinsert
-endif
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au BufRead,BufNewFile * startinsert
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent on
-endif
+filetype plugin indent on
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
+set showcmd	    	" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+set hidden		    " Hide buffers when they are abandoned
+set mouse=a		    " Enable mouse usage (all modes)
 set number
 set colorcolumn=100
 set tabstop=4
@@ -106,6 +104,16 @@ set shiftwidth=4
 set smarttab
 set expandtab
 set smartindent
+
+"let g:netrw_banner = 0
+"let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+"let g:netrw_altv = 1
+"let g:netrw_winsize = 25
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+augroup END
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
