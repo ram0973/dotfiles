@@ -48,9 +48,9 @@ alias wget="wget -c"
 # it gives you the command number to do more complex recalls afterwards:
 alias histg="history | grep"
 
-alias top="htop"
-alias du="ncdu"
-alias df="pydf"
+# alias top="htop"
+# alias du="ncdu"
+# alias df="pydf"
 alias myip="curl http://ipecho.net/plain; echo"
 
 # sudo apt-get install imagemagick if not already available
