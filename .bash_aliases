@@ -110,7 +110,7 @@ function extract {
 fi
 }
 
-export PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\$
+export PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\$"
 export LS_COLORS="$LS_COLORS:di=1;33"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa 
