@@ -57,60 +57,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 # This will resize all of the PNG images in the current directory, only if they are wider than 690px.
 alias webify="mogrify -resize 690\> *.png"
 
-alias upload="sftp username@server.com:/path/to/upload/directory
-
-# For starters, there are two basic ways to declare a bash syntax. The first uses the function command and looks something like this:
-
-# Functions syntax
-# function_name () {
-#    command1
-#    command2
-# }
-# Compress this second form into one line and separate the commands with semicolons. A semicolon must come after the last command too:
-# function_name () { command1; command2; }
-
-# This one will create a directory and then immediately move into that directory. 
-# mcd test
-mcd () { mkdir -p $1; cd $1; }
-
-# This function takes the first argument and calls the appropriate utility program based on the file extension used.
-function extract {
- if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
-    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
-    return 1
- else
-    for n in $@
-    do
-      if [ -f "$n" ] ; then
-          case "${n%,}" in
-            *.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
-                         tar xvf "$n"       ;;
-            *.lzma)      unlzma ./"$n"      ;;
-            *.bz2)       bunzip2 ./"$n"     ;;
-            *.rar)       unrar x -ad ./"$n" ;;
-            *.gz)        gunzip ./"$n"      ;;
-            *.zip)       unzip ./"$n"       ;;
-            *.z)         uncompress ./"$n"  ;;
-            *.7z|*.arj|*.cab|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.rpm|*.udf|*.wim|*.xar)
-                         7z x ./"$n"        ;;
-            *.xz)        unxz ./"$n"        ;;
-            *.exe)       cabextract ./"$n"  ;;
-            *)
-                         echo "extract: '$n' - unknown archive method"
-                         return 1
-                         ;;
-          esac
-      else
-          echo "'$n' - file does not exist"
-          return 1
-      fi
-    done
-fi
-}
-
-export PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\$"
-export LS_COLORS="$LS_COLORS:di=1;33"
+PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
+LS_COLORS="$LS_COLORS:di=1;33"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa 
