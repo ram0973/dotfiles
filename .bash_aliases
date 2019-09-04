@@ -6,6 +6,10 @@ alias @deact="deactivate"
 alias @ins="sudo apt-get install"
 alias @upd="sudo apt-get update"
 alias @upg="sudo apt-get upgrade"
+alias @sr="sudo systemctl restart"
+alias @ss="sudo systemctl status"
+alias @se="sudo systemctl enable"
+alias @sdr="sudo systemctl daemon-reload"
 
 # https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
 # If you want to get rid of an alias, just use the unalias command:
