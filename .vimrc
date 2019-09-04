@@ -81,6 +81,7 @@ set smarttab
 set expandtab
 set smartindent
 set laststatus=2    " Status bar is enabled all the time
+set belloff=all
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
