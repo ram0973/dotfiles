@@ -21,6 +21,30 @@ runtime! debian.vim
 " options, so any other options should be set AFTER setting 'compatible'.
 set nocompatible
 
+" START - Setting up Vundle - the vim plugin bundler
+let iCanHazVundle=1
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
+if !filereadable(vundle_readme)
+   echo "Installing Vundle.."
+   echo ""
+   silent !mkdir -p ~/.vim/bundle
+   silent !git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+   let iCanHazVundle=0
+endif
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+if iCanHazVundle == 0
+   echo "Installing Bundles, please ignore key map error messages"
+   echo ""
+   :source $MYVIMRC
+   :PluginInstall
+endif
+" END - Setting up Vundle - the vim plugin bundler
+
+
 " https://github.com/VundleVim/Vundle.vim
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -50,11 +74,8 @@ Plugin 'tpope/vim-fugitive'
 
 " https://github.com/editorconfig/editorconfig-vim
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'micha/vim-colors-solarized'
 Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'zacanger/angr.vim'
-Plugin 'lifepillar/vim-solarized8'
+"Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
