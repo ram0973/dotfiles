@@ -21,17 +21,21 @@ runtime! debian.vim
 " options, so any other options should be set AFTER setting 'compatible'.
 set nocompatible
 
+" Auto install Plug system with plugins - Install curl first!
 if empty(glob('~/.vim/autoload/plug.vim'))
-   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-   \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
-" https://github.com/editorconfig/editorconfig-vim
+" .editorconfig file support https://github.com/editorconfig/editorconfig-vim
 Plug 'editorconfig/editorconfig-vim'
+" status bar theme
 Plug 'vim-airline/vim-airline'
-"Plugin 'vim-airline/vim-airline-themes'
+" dimmed colors themes https://github.com/morhetz/gruvbox
+Plug 'morhetz/gruvbox'
+
 call plug#end()
 
 " Brief help
@@ -47,7 +51,7 @@ call plug#end()
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 
-colorscheme molokai
+colorscheme gruvbox 
 syntax on
 
 " If using a dark background within the editing area and syntax highlighting
@@ -82,6 +86,7 @@ set expandtab
 set smartindent
 set laststatus=2    " Status bar is enabled all the time
 set belloff=all
+set lazyredraw
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
