@@ -1,5 +1,3 @@
-# linux-goodies
-Linux files and scripts
+# dotfiles
+Linux Ubuntu dotfiles
 
-# Powerline fonts setup
-sudo apt-get install fonts-powerline
