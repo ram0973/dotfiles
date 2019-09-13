@@ -1,3 +1,4 @@
+#!/bin/sh
 sudo apt update
 # sudo apt full-upgrade
 sudo apt install git curl neofetch -y
