@@ -64,8 +64,3 @@ alias myip="curl http://ipecho.net/plain; echo"
 # sudo apt-get install imagemagick if not already available
 # This will resize all of the PNG images in the current directory, only if they are wider than 690px.
 alias webify="mogrify -resize 690\> *.png"
-
-PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
-LS_COLORS="$LS_COLORS:di=1;33"
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
