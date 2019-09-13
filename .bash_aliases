@@ -1,14 +1,18 @@
+function apt_update_with_cache() 
+{ if [ -z "$(find /var/cache/apt/pkgcache.bin -mmin -60)" ]; then sudo apt-get update; fi; }
+
 alias ..="cd .."
 alias ll="ls -lhA"
 alias @venv="python3 -m venv venv"
 alias @act="source venv/bin/activate"
 alias @deact="deactivate"
-alias @ins="sudo apt-get install"
-alias @upd="sudo apt-get update"
-alias @upg="sudo apt-get upgrade"
+alias @ai="sudo apt-get install"
+alias @au=apt_update_with_cache
+alias @ag="sudo apt-get upgrade"
 alias @scr="sudo systemctl restart"
 alias @scs="sudo systemctl status"
 alias @sce="sudo systemctl enable"
+alias @scd="sudo systemctl disable"
 alias @scdr="sudo systemctl daemon-reload"
 
 # https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
