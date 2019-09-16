@@ -107,6 +107,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export ANSIBLE_COLOR_VERBOSE=green
+export ANSIBLE_TIMEOUT=20
+
 PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
 LS_COLORS="$LS_COLORS:di=1;33"
 
