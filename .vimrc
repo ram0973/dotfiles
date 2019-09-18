@@ -61,7 +61,10 @@ set background=dark
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-" au BufRead,BufNewFile * startinsert
+" Enter Insert mode on load
+au BufRead,BufNewFile * startinsert
+" Always tabs
+
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
@@ -105,6 +108,27 @@ let g:airline_powerline_fonts = 1
 "  autocmd!
 "  autocmd VimEnter * :Vexplore
 "augroup END
+
+:map <C-a> GVgg                         " Select all 
+:map <C-n> :enew                        " New File (Also See Ctrl + t)
+:map <C-o> :e . <Enter>                 " Open File (Opens current folder to browse)
+:map <C-s> :w <Enter>                   " Save File
+:map <C-c> y                            " Copy
+:map <C-v> p                            " Paste
+:map <C-x> d                            " Cut
+:map <C-z> u                            " Undo
+":map <C-r> Redo is C-r by default
+:map <C-t> :tabnew <Enter>              " Open new tab
+:map <C-w> :close <Enter>               " Close (tab)
+nnoremap <C-Left> :tabprevious <Enter>  " Previous tab
+nnoremap <C-Right> :tabnext <Enter>     " Next tab
+:map <C-W> :q <Enter>                   " Force close (Quit)
+:map <C-f> /                            " Find
+:map <F3> n                             " Find Next
+:map <C-h> :%s/                         " Replace all
+:map <C-d> yp                   
+nnoremap <S-Tab> <<
+inoremap <S-Tab> <C-D>
 
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
