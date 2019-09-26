@@ -108,7 +108,7 @@ if ! shopt -oq posix; then
 fi
 
 export ANSIBLE_COLOR_VERBOSE=green
-export ANSIBLE_TIMEOUT=20
+export ANSIBLE_TIMEOUT=30
 
 PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
 LS_COLORS="$LS_COLORS:di=1;33"
@@ -118,3 +118,6 @@ ssh-add ~/.ssh/id_rsa
 
 neofetch
 last -10
+export PATH="/home/ra/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"

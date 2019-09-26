@@ -34,7 +34,8 @@ Plug 'editorconfig/editorconfig-vim'
 " status bar theme
 Plug 'vim-airline/vim-airline'
 " dimmed colors themes https://github.com/morhetz/gruvbox
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
+Plug 'cormacrelf/vim-colors-github'
 
 call plug#end()
 
@@ -51,12 +52,14 @@ call plug#end()
 " Vim5 and later versions support syntax highlighting. Uncommenting the next
 " line enables syntax highlighting by default.
 
-colorscheme gruvbox 
-syntax on
+" use a slightly darker background, like GitHub inline code blocks
+let g:github_colors_soft = 1
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-set background=dark
+" more blocky diff markers in signcolumn (e.g. GitGutter)
+let g:github_colors_block_diffmark = 0
+colorscheme github
+set background=light
+syntax on
 
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -64,7 +67,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Enter Insert mode on load
 au BufRead,BufNewFile * startinsert
 " Always tabs
-
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
@@ -81,7 +83,7 @@ set autowrite		" Automatically save before commands like :next and :make
 set hidden		    " Hide buffers when they are abandoned
 set mouse=a		    " Enable mouse usage (all modes)
 set number
-set colorcolumn=100
+set colorcolumn=80
 set tabstop=4
 set shiftwidth=4
 set smarttab
@@ -98,6 +100,8 @@ if &term =~ '256color'
 endif
 
 let g:airline_powerline_fonts = 1
+let g:airline_theme = "github"
+let g:lightline = { 'colorscheme': 'github' }
 
 "let g:netrw_banner = 0
 "let g:netrw_liststyle = 3
