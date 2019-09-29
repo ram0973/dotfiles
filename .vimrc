@@ -53,7 +53,7 @@ call plug#end()
 " line enables syntax highlighting by default.
 
 " use a slightly darker background, like GitHub inline code blocks
-let g:github_colors_soft = 1
+let g:github_colors_soft = 0
 
 " more blocky diff markers in signcolumn (e.g. GitGutter)
 let g:github_colors_block_diffmark = 0
@@ -102,7 +102,6 @@ set scrolloff=3
 set foldmethod=syntax
 set foldcolumn=3
 set cursorline
-set cursorcolumn
 
 if !has('gui_running')
     set mouse=
