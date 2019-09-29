@@ -74,6 +74,7 @@ filetype plugin indent on
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
+set encoding=utf8
 set showcmd	    	" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -92,6 +93,20 @@ set smartindent
 set laststatus=2    " Status bar is enabled all the time
 set belloff=all
 set lazyredraw
+set wrap
+set ai
+set listchars=tab:··
+set list
+set backspace=indent,eol,start
+set scrolloff=3
+set foldmethod=syntax
+set foldcolumn=3
+set cursorline
+set cursorcolumn
+
+if !has('gui_running')
+    set mouse=
+endif
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
