@@ -34,10 +34,8 @@ Plug 'editorconfig/editorconfig-vim'
 " status bar theme
 Plug 'vim-airline/vim-airline'
 " dimmed colors themes https://github.com/morhetz/gruvbox
-Plug 'morhetz/gruvbox'
-"Plug 'cormacrelf/vim-colors-github'
-"Plug 'sickill/vim-monokai'
-"Plug 'sonph/onehalf', {'rtp': 'vim/'}
+"Plug 'morhetz/gruvbox'
+Plug 'cormacrelf/vim-colors-github'
 
 call plug#end()
 
@@ -59,8 +57,8 @@ let g:github_colors_soft = 0
 
 " more blocky diff markers in signcolumn (e.g. GitGutter)
 let g:github_colors_block_diffmark = 0
-colorscheme gruvbox
-set background=dark
+colorscheme github
+set background=light
 syntax on
 
 " Uncomment the following to have Vim jump to the last position when
@@ -71,7 +69,7 @@ au BufRead,BufNewFile * startinsert
 " Always tabs
 
 " Uncomment the following to have Vim load indentation rules and plugins
-:" according to the detected filetype.
+" according to the detected filetype.
 filetype plugin indent on
 
 " The following are commented out as they cause vim to behave a lot
@@ -115,9 +113,9 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-let g:airline_powerline_fonts = 0
-let g:airline_theme = "gruvbox"
-let g:lightline = { 'colorscheme': 'gruvbox' }
+let g:airline_powerline_fonts = 1
+let g:airline_theme = "github"
+let g:lightline = { 'colorscheme': 'github' }
 
 "let g:netrw_banner = 0
 "let g:netrw_liststyle = 3

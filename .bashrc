@@ -1,123 +1,142 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+" Wes Doyle vimrc
+" Last Update March 20 2018
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+set nocompatible
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
+syntax on
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+" Vundle begins here; turn off filetype temporarily
+" set the runtime path to include Vundle and initialize
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+" plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-surround'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-markdown'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'janko-m/vim-test'
+Plugin 'alfredodeza/coveragepy.vim'
+Plugin 'elixir-editors/vim-elixir'
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+call vundle#end()
+filetype plugin indent on
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+set term=screen-256color
+colorscheme PaperColor
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+set autoindent
+set bg=dark
+set backspace=indent,eol,start
+set expandtab
+set ignorecase
+set incsearch
+set laststatus=2
+set linebreak
+set nobackup
+set noerrorbells
+set nolist
+set noswapfile
+set novb
+set nowrap
+set number
+set relativenumber
+set ruler
+set scrolloff=8
+set showmatch
+set shiftwidth=4
+set shortmess=I
+set showcmd
+set showmode
+set sidescroll=1
+set sidescrolloff=7
+set smartcase
+set softtabstop=4
+set undolevels=1000
+set nrformats-=octal
+set vb
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
+highlight ColorColumn ctermbg=black
+set colorcolumn=80
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+let g:syntastic_python_flake8_args = "--ignore=E501 --max-complexity 10"
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
+"CtrlP
+let g:ctrlp_map = '<c-p>'
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+"Airline
+let g:airline_theme='tomorrow'
+let g:airline_powerline_fonts = 1
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+"NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+let test#python#runner = 'pytest'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
+"Gvim mods
+set encoding=utf-8
+set hidden
+set history=100
+set mouse=a
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=Lo
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+"nerd-commenter settings
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
+" Align line-wise comment delimiters flush left instead of following code
+" indentation
+let g:NERDDefaultAlign = 'left'
 
-export ANSIBLE_COLOR_VERBOSE=green
-export ANSIBLE_TIMEOUT=30
+" Allow commenting and inverting empty lines (useful when commenting a
+" region)
+let g:NERDCommentEmptyLines = 1
 
-PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
-LS_COLORS="$LS_COLORS:di=1;33"
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
 
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
-neofetch
-last -10
-export PATH="/home/ra/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+nmap <silent> <leader>t : TestNearest<CR>
+nmap <silent> <leader>T : TestFile<CR>
+nmap <silent> <leader>a : TestSuite<CR>
+nmap <silent> <leader>l : TestLast<CR>
+nmap <silent> <leader>v : TestVisit<CR>
+
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
+" Remove all trailing whitespace by pressing F4
+noremap <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+if has("gui_running")
+    if has("gui_gtk2")
+        set guifont=Inconsolata\ for\ Powerline\ Medium\ 16
+        colorscheme iceberg
+    endif
+endif
