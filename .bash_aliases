@@ -32,6 +32,18 @@ alias @scdr="sudo systemctl daemon-reload"
 # Let's also make an alias to pipe our output to less for viewing large directory listings with the long format:
 # alias lsl="ls -lhFA | less"
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 # This one will list our disk usage in human-readable units including filesystem type, and print a total at the bottom:
 alias df="df -Tha --total"
 alias du="du -ach | sort -h"
@@ -65,7 +77,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 # This will resize all of the PNG images in the current directory, only if they are wider than 690px.
 alias webify="mogrify -resize 690\> *.png"
 
-PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
+#PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
 LS_COLORS="$LS_COLORS:di=1;33"
 
 eval "$(ssh-agent -s)"
