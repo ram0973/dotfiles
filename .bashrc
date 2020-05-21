@@ -58,10 +58,9 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     export PS1="\[$(tput bold)\]\u\[$(tput sgr0)\]\[\033[38;5;14m\]@\[$(tput sgr0)\]\[$(tput bold)\]\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;11m\]\w\[$(tput sgr0)\]\[\033[38;5;7m\][\$?]\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]"
-    LS_COLORS="$LS_COLORS:di=1;33"
+    export LS_COLORS='di=01;33'
     # colored GCC warnings and errors
     export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -95,6 +94,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa

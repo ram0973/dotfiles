@@ -3,7 +3,7 @@ function apt_update_with_cache()
 
 alias ..="cd .."
 alias ll="ls -lhA"
-alias @venv="python3 -m venv venv"
+alias @venv="python -m venv venv"
 alias @act="source venv/bin/activate"
 alias @deact="deactivate"
 alias @ai="sudo apt-get install"
@@ -13,6 +13,7 @@ alias @scr="sudo systemctl restart"
 alias @scs="sudo systemctl status"
 alias @sce="sudo systemctl enable"
 alias @scd="sudo systemctl disable"
+alias @sct="sudo systemctl stop"
 alias @scdr="sudo systemctl daemon-reload"
 
 # https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
@@ -72,13 +73,31 @@ alias histg="history | grep"
 # alias du="ncdu"
 # alias df="pydf"
 alias myip="curl http://ipecho.net/plain; echo"
+alias headers='curl -I'
 
 # sudo apt-get install imagemagick if not already available
 # This will resize all of the PNG images in the current directory, only if they are wider than 690px.
 alias webify="mogrify -resize 690\> *.png"
 
-#PS1="SH \[\033[38;5;14m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;11m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;13m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]{\$?}\\$ \[$(tput sgr0)\]"
-LS_COLORS="$LS_COLORS:di=1;33"
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+alias ports='netstat -tulnp'
+## replace mac with your actual server mac address #
+alias wakeuppc='/usr/bin/wakeonlan 08:60:6E:D5:94:78'
+
+## shortcut  for iptables and pass it via sudo#
+alias ipt='sudo /sbin/iptables'
+ 
+# display all rules #
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+alias firewall=iptlist
+
+alias reboot='sudo /sbin/reboot'
+alias poweroff='sudo /sbin/poweroff'
+alias halt='sudo /sbin/halt'
+alias shutdown='sudo /sbin/shutdown'
