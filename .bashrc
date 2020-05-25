@@ -96,6 +96,7 @@ if ! shopt -oq posix; then
 fi
 
 export PATH="$HOME/.pyenv/bin:$PATH"
+export PATH="$HOME/.poetry/bin:$PATH"
 command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
 
 eval "$(ssh-agent -s)"
