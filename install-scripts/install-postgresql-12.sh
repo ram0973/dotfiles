@@ -1,0 +1,1 @@
+sudo apt install postgresql-12 -y
