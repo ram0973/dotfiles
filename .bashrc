@@ -108,4 +108,3 @@ export NVM_DIR="$HOME/.nvm"
 
 alias tb="nc termbin.com 9999"
 
-. "$HOME/.sdkman/bin/sdkman-init.sh"
