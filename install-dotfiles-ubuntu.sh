@@ -9,4 +9,5 @@ git config --global credential.helper 'cache --timeout=32400'
 ln -s -f ~/dotfiles/.vimrc ~/
 ln -s -f ~/dotfiles/.bash_aliases ~/
 ln -s -f ~/dotfiles/.bashrc ~/
+ln -s -f ~/dotfiles/.dircolors ~/
 . ~/.bashrc
