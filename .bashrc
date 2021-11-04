@@ -95,16 +95,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$HOME/.pyenv/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
-command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init -)" && eval "$(pyenv virtualenv-init -)"
-
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 alias tb="nc termbin.com 9999"
-
+alias k="microk8s kubectl"
