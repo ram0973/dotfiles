@@ -101,3 +101,5 @@ alias reboot='sudo /sbin/reboot'
 alias poweroff='sudo /sbin/poweroff'
 alias halt='sudo /sbin/halt'
 alias shutdown='sudo /sbin/shutdown'
+alias tb="nc termbin.com 9999"
+alias k="microk8s kubectl"

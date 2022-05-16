@@ -97,6 +97,3 @@ fi
 
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
-
-alias tb="nc termbin.com 9999"
-alias k="microk8s kubectl"
