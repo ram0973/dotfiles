@@ -12,7 +12,7 @@ set -o pipefail
 # Turn on traces, useful while debugging but commented out by default
 # set -o xtrace
 
-PYTHON_VERSION=3.9.0
+PYTHON_VERSION=3.11.2
 
 sudo apt-get update
 echo 👍 Install pyenv dependencies

@@ -11,5 +11,6 @@ set -o pipefail
 # Turn on traces, useful while debugging but commented out by default
 # set -o xtrace
 
-echo 👍 Installing Maven for Java
-sudo apt install maven -y
+echo 👍 Installing Nginx mainline
+sudo add-apt-repository ppa:ondrej/nginx-mainline
+sudo apt install nginx

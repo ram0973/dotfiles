@@ -11,5 +11,5 @@ set -o pipefail
 # Turn on traces, useful while debugging but commented out by default
 # set -o xtrace
 
-echo 👍 Installing Maven for Java
-sudo apt install maven -y
+echo 👍 Installing postgresql 15
+sudo apt install postgresql-15 -y

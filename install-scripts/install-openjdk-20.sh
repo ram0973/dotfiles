@@ -11,5 +11,6 @@ set -o pipefail
 # Turn on traces, useful while debugging but commented out by default
 # set -o xtrace
 
-echo 👍 Installing Maven for Java
-sudo apt install maven -y
+echo 👍 Install openjdk
+sudo apt install openjdk-20-jdk -y
+sudo update-alternatives --config mvn
